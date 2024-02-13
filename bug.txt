@@ -1,0 +1,38 @@
+"What does the devise masquerade gem do?"
+
+Traceback (most recent call last):
+  File "/Users/shaun.garwood/.local/share/nvim/lazy/CopilotChat.nvim/rplugin/python3/copilot-plugin.py", line 29, in copilot_agent_cmd
+    self.vsplit_chat_handler.chat(args[0], file_type, code)
+  File "/Users/shaun.garwood/.local/share/nvim/lazy/CopilotChat.nvim/rplugin/python3/handlers/vsplit_chat_handler.py", line 38, in chat
+    super().chat(prompt, filetype, code, self.nvim.current.window.handle)
+  File "/Users/shaun.garwood/.local/share/nvim/lazy/CopilotChat.nvim/rplugin/python3/handlers/chat_handler.py", line 64, in chat
+    self._add_chat_messages(system_prompt, prompt, code, filetype, model)
+  File "/Users/shaun.garwood/.local/share/nvim/lazy/CopilotChat.nvim/rplugin/python3/handlers/chat_handler.py", line 228, in _add_chat_messages
+    for token in self.copilot.ask(
+  File "/Users/shaun.garwood/.local/share/nvim/lazy/CopilotChat.nvim/rplugin/python3/copilot.py", line 127, in ask
+    raise Exception(
+Exception: The developer of this plugin has made a mistake. Please report this issue.
+
+
+----
+
+okay, this is because i didn't define opts['disable_extera_info']
+
+Traceback (most recent call last):
+  File "/Users/shaun.garwood/.local/share/nvim/lazy/CopilotChat.nvim/rplugin/python3/copilot-plugin.py", line 29, in copilot_agent_cmd
+    self.vsplit_chat_handler.chat(args[0], file_type, code)
+  File "/Users/shaun.garwood/.local/share/nvim/lazy/CopilotChat.nvim/rplugin/python3/handlers/vsplit_chat_handler.py", line 38, in chat
+    super().chat(prompt, filetype, code, self.nvim.current.window.handle)
+  File "/Users/shaun.garwood/.local/share/nvim/lazy/CopilotChat.nvim/rplugin/python3/handlers/chat_handler.py", line 44, in chat
+    self.nvim.eval("g:copilot_chat_disable_separators") == "yes"
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shaun.garwood/Library/Python/3.11/lib/python/site-packages/pynvim/api/nvim.py", line 319, in eval
+    return self.request('nvim_eval', string, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shaun.garwood/Library/Python/3.11/lib/python/site-packages/pynvim/api/nvim.py", line 199, in request
+    res = self._session.request(name, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shaun.garwood/Library/Python/3.11/lib/python/site-packages/pynvim/msgpack_rpc/session.py", line 139, in request
+    raise self.error_wrapper(err)
+pynvim.api.common.NvimError: Vim:E121: Undefined variable: g:copilot_chat_disable_separators
+
