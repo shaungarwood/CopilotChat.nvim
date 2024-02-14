@@ -1,3 +1,21 @@
+it would seem it's because of bad "code". have to have to yank lines of code, then ask specifically about that code.
+
+Why are they using the MyBuffer package? Why not the nvim buffer? then we can detect and error for no lines yanked.
+
+logging.debug(f"nvim buffer: {self.nvim.current.buffer[0]}")
+oh, they are? mypynvim.core.buffer
+
+```
+import loggined
+
+logging.basicConfig(filename='wtf.log', encoding='utf-8', level=logging.DEBUG)
+
+logging.debug(f"nvim buffer: {self.nvim.current.buffer[0]}")
+
+```
+
+----
+
 "What does the devise masquerade gem do?"
 
 Traceback (most recent call last):
